@@ -7,6 +7,7 @@ const Routes = () => (
   <main>
     <Switch>
       <Route exact path="/invoice/:invoiceId" component={Invoice} />
+      {/* per requirement - supporting "/invoice?invoiceId=:id"*/}
       <Route path="/invoice" component={Invoice} />
     </Switch>
   </main>

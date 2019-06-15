@@ -4,7 +4,7 @@ import store from "./store";
 
 import Routes from "./components/Routes/index";
 
-import "./css/App.css";
+import "./App.css";
 
 class App extends Component {
   render() {
