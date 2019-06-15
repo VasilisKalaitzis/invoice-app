@@ -14,14 +14,17 @@ export const fetchInvoiceDataById = invoiceId => (dispatch, getState) => {
   // (e.g fetch invoice from invoice_list, send real time notification to change
   // the invoice status from pending to viewed, easy offline mode integration e.t.c)
   let cachedInvoices = getState().invoiceReducer.invoices;
-
   // add the invoice to the invoices list. We don't need to do anything if it already exists
   if (cachedInvoices[invoiceId] === undefined) {
-    dispatch({
-      type: FETCH_INVOICE_BY_ID,
-      payload: {
-        newInvoice: invoiceData[0]
+    for (let i = 0; i < invoiceData.length; i++) {
+      if (invoiceData[i].invoiceId == invoiceId) {
+        dispatch({
+          type: FETCH_INVOICE_BY_ID,
+          payload: {
+            newInvoice: invoiceData[i]
+          }
+        });
       }
-    });
+    }
   }
 };

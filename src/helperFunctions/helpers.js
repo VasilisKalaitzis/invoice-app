@@ -6,7 +6,7 @@
 //        paramName     string
 //        URLparameters string
 export function getUrlParameter(paramName, URLparameters) {
-  paramName = paramName.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  paramName = paramName.replace(/[[]/, "\\[").replace(/[\]]/, "\\]");
   let regex = new RegExp("[\\?&]" + paramName + "=([^&#]*)");
   let results = regex.exec(URLparameters);
   return results === null
