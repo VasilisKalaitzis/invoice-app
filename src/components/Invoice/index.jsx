@@ -11,6 +11,7 @@ import { getUrlParameter } from "../../helperFunctions/helpers.js";
 import TableTemplate from "../TableTemplate";
 import DetailCard from "../DetailCard";
 import AppHeader from "../AppHeader";
+import BeautyFields from "../BeautyFields";
 
 // css
 import "./invoice.css";
@@ -33,72 +34,114 @@ class Invoice extends Component {
     this.props.fetchInvoiceDataById(this.invoiceId);
   }
 
+  renderDetailCard(details, position) {
+    return (
+      <DetailCard
+        position={position}
+        header={details.name}
+        body={[details.street, details.city, details.postalcode]}
+      />
+    );
+  }
+
   render() {
-    console.log(JSON.stringify(this.props));
     return (
       <div className="invoice-container flexcontainer">
         {/*  header here */}
-        <AppHeader title={"INVOICE #" + this.invoiceId} />
+        {/* Tech Dept: This should be moved to the route */}
+
+        <div className="flexcontainer-block xs-12 color-pallete1">
+          <AppHeader title={"INVOICE #" + this.invoiceId} />
+        </div>
 
         {/* body here */}
-        <div className="sub-app color-pallete2">
-          {this.props.invoices.hasOwnProperty(this.invoiceId)
-            ? [
-                <div class="flexcontainer-block xs-12">
-                  <div key="invoice_date">
-                    {" "}
-                    invoiceDate:{" "}
-                    {this.props.invoices[this.invoiceId].invoiceDate}
-                  </div>
-                  <div key="pay_by">
-                    {" "}
-                    payBy: {this.props.invoices[this.invoiceId].payBy}
-                  </div>
-                  <div key="account">
-                    {" "}
-                    account: {this.props.invoices[this.invoiceId].account}
-                  </div>
-                </div>,
-                // sender - receiver info
-                <div className="flexcontainer-block xs-6">
-                  <DetailCard
-                    position="left"
-                    key="p_details_sender"
-                    details={this.props.invoices[this.invoiceId].sender}
-                  />
-                </div>,
-                <div className="flexcontainer-block xs-6">
-                  <DetailCard
-                    position="right"
-                    key="p_details_receiver"
-                    details={this.props.invoices[this.invoiceId].receiver}
-                  />
-                </div>,
-                // items
-                <div className="flexcontainer-block xs-12">
-                  <TableTemplate
-                    key="table_template_invoice"
-                    id="table_template_invoice"
-                    columns={[
-                      { label: "description" },
-                      { label: "qty" },
-                      { label: "vat" },
-                      { label: "price", prefix: "$" }
-                    ]}
-                    colHeaders={["Product", "Unit", "VAT", "Price"]}
-                    dataSource={this.props.invoices[this.invoiceId].lines}
-                    aggregates={[
-                      {
-                        type: "text",
-                        label: "Total",
-                        value:
-                          "$" + this.props.invoices[this.invoiceId].totalPrice
-                      }
-                    ]}
-                  />
-                </div>
-              ]
-            : null}
+        <div className="flexcontainer-block xs-12">
+          <div className="sub-app color-pallete2">
+            <div className="sub-app-content flexcontainer">
+              {this.props.invoices.hasOwnProperty(this.invoiceId)
+                ? [
+                    ////////////////////////
+                    // sender - receiver info
+                    ////////////////////////
+                    <div
+                      className="flexcontainer-block xs-6 vertical-top"
+                      key="p_details_sender"
+                    >
+                      {this.renderDetailCard(
+                        this.props.invoices[this.invoiceId].sender,
+                        "left"
+                      )}
+                    </div>,
+                    <div
+                      className="flexcontainer-block xs-6 vertical-top"
+                      key="p_details_receiver"
+                    >
+                      {this.renderDetailCard(
+                        this.props.invoices[this.invoiceId].receiver,
+                        "right"
+                      )}
+                    </div>,
+                    ////////////////////////
+                    // invoice details info
+                    ////////////////////////
+                    <div
+                      className="flexcontainer-block xs-12 md-3 vertical-top"
+                      key="invoice_details"
+                    >
+                      <BeautyFields
+                        type="date"
+                        value={
+                          "From " +
+                          this.props.invoices[this.invoiceId].invoiceDate
+                        }
+                      />
+                      <BeautyFields
+                        type="date"
+                        value={
+                          "Until " + this.props.invoices[this.invoiceId].payBy
+                        }
+                      />
+                      <BeautyFields
+                        type="text"
+                        value={
+                          "Acc No. " +
+                          this.props.invoices[this.invoiceId].account
+                        }
+                      />
+                    </div>,
+                    ////////////////////////
+                    // item list
+                    ////////////////////////
+                    <div
+                      className="flexcontainer-block xs-12"
+                      key="invoice_lines"
+                    >
+                      <TableTemplate
+                        key="table_template_invoice"
+                        id="table_template_invoice"
+                        columns={[
+                          { label: "description" },
+                          { label: "qty" },
+                          { label: "vat", suffix: "%" },
+                          { label: "price", prefix: "$" }
+                        ]}
+                        colHeaders={["Product", "Unit", "VAT", "Price"]}
+                        dataSource={this.props.invoices[this.invoiceId].lines}
+                        aggregates={[
+                          {
+                            type: "text",
+                            label: "Total",
+                            value:
+                              "$" +
+                              this.props.invoices[this.invoiceId].totalPrice
+                          }
+                        ]}
+                      />
+                    </div>
+                  ]
+                : null}
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -9,13 +9,11 @@ import "./appHeader.css";
 class AppHeader extends Component {
   render() {
     return (
-      <div className="color-pallete1 flexcontainer-block xs-12">
-        <div>
-          <span className="inline-block back-button-font">
-            <FontAwesomeIcon icon="chevron-left" />
-          </span>
-          {this.props.title}
-        </div>
+      <div>
+        <span className="inline-block back-button-font">
+          <FontAwesomeIcon icon="chevron-left" />
+        </span>
+        {this.props.title}
       </div>
     );
   }
@@ -24,4 +22,5 @@ class AppHeader extends Component {
 export default AppHeader;
 
 // Dependencies
-// - - -
+// Libraries:
+//      React Font Awesome

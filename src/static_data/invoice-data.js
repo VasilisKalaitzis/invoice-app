@@ -57,7 +57,7 @@ const invoiceData = [
     invoiceId: 2,
 
     sender: {
-      name: "Vasilis Kalaitzis",
+      name: "Vasilis Kalaitzissssssssssssssssssssssssssss",
 
       street: "Ion 28",
 
@@ -99,6 +99,26 @@ const invoiceData = [
         vat: 5,
 
         price: 29
+      },
+
+      {
+        qty: "1",
+
+        description: "Food",
+
+        vat: 5,
+
+        price: 2
+      },
+
+      {
+        qty: "1",
+
+        description: "Food",
+
+        vat: 5,
+
+        price: 2
       },
 
       {

@@ -14,8 +14,9 @@ class tableTemplate extends Component {
         {this.props.columns.map(column => {
           return (
             <td key={this.props.id + "_col_" + idx + column.label}>
-              {column.prefix != undefined ? column.prefix : null}
+              {column.prefix !== undefined ? column.prefix : null}
               {line[column.label]}
+              {column.suffix !== undefined ? column.suffix : null}
             </td>
           );
         })}
@@ -37,6 +38,9 @@ class tableTemplate extends Component {
             </span>
           </div>
         );
+      }
+      default: {
+        return null;
       }
     }
   }
