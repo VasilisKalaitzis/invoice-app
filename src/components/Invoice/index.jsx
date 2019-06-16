@@ -50,12 +50,12 @@ class Invoice extends Component {
         {/*  header here */}
         {/* Tech Dept: This should be moved to the route */}
 
-        <div className="flexcontainer-block xs-12 color-pallete1">
+        <div className="xs-12">
           <AppHeader title={"INVOICE #" + this.invoiceId} />
         </div>
 
         {/* body here */}
-        <div className="flexcontainer-block xs-12">
+        <div className="flexcontainer-block xs-12 md-6">
           <div className="sub-app color-pallete2">
             <div className="sub-app-content flexcontainer">
               {this.props.invoices.hasOwnProperty(this.invoiceId)
@@ -85,8 +85,8 @@ class Invoice extends Component {
                     // invoice details info
                     ////////////////////////
                     <div
-                      className="flexcontainer-block xs-12 md-3 vertical-top"
-                      key="invoice_details"
+                      className="flexcontainer-block xs-12 sm-4 md-3 vertical-top"
+                      key="invoice_invoiceDate"
                     >
                       <BeautyFields
                         type="date"
@@ -95,12 +95,22 @@ class Invoice extends Component {
                           this.props.invoices[this.invoiceId].invoiceDate
                         }
                       />
+                    </div>,
+                    <div
+                      className="flexcontainer-block xs-12 sm-4 md-3 vertical-top"
+                      key="invoice_payBy"
+                    >
                       <BeautyFields
                         type="date"
                         value={
                           "Until " + this.props.invoices[this.invoiceId].payBy
                         }
                       />
+                    </div>,
+                    <div
+                      className="flexcontainer-block xs-12 sm-4 md-3 vertical-top"
+                      key="invoice_account"
+                    >
                       <BeautyFields
                         type="text"
                         value={

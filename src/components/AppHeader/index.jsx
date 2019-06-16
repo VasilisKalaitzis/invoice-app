@@ -9,7 +9,7 @@ import "./appHeader.css";
 class AppHeader extends Component {
   render() {
     return (
-      <div>
+      <div className="header-container color-pallete1">
         <span className="inline-block back-button-font">
           <FontAwesomeIcon icon="chevron-left" />
         </span>

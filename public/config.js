@@ -1,3 +1,3 @@
 var env_config = {
-  invoiceUrl: "http://YOUR-URL"
+  baseUrl: "http://dnd.dalis.develop.c-137.live"
 };

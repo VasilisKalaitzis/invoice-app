@@ -1,11 +1,22 @@
 .color-pallete1 {
   color: white;
-  background-color: #ec615e;
+  background-color: #f86c5e;
 }
 
 .color-pallete2 {
   color: #1b2124;
   background-color: white;
+}
+
+// this color pallete with be reversed
+// based on the device's width
+.color-pallete3 {
+  color: #1b2124;
+  background-color: white;
+  @media screen and (max-width: 961px) {
+    color: white;
+    background-color: #f86c5e;
+  }
 }
 
 .shadow-pallete1 {
