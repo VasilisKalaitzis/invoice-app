@@ -15,6 +15,7 @@ class DetailCard extends Component {
         }
       >
         <div className="detail-card-header">
+          <p className="sm-hide detail-card-title">{this.props.title}</p>
           <p>{this.props.header}</p>
         </div>
         <ul className="detail-card-body">

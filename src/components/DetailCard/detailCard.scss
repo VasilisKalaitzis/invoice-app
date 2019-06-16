@@ -19,6 +19,9 @@ $border-color: #ebebeb;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    .detail-card-title {
+      opacity: 0.5;
+    }
   }
 
   .detail-card-body {

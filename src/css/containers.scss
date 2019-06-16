@@ -25,6 +25,12 @@
     }
   }
 
+  .xs-hide,
+  .sm-hide,
+  .md-hide {
+    display: none;
+  }
+
   @media screen and (min-width: 320px) {
     .xs-12 {
       width: 100%;
@@ -47,6 +53,10 @@
     }
     .xs-2 {
       width: 16.6%;
+    }
+
+    .xs-hide {
+      display: block;
     }
   }
 
@@ -74,6 +84,10 @@
     .sm-2 {
       width: 16.6%;
     }
+
+    .sm-hide {
+      display: block;
+    }
   }
 
   @media screen and (min-width: 1300px) {
@@ -99,6 +113,10 @@
     }
     .md-2 {
       width: 16.6%;
+    }
+
+    .md-hide {
+      display: block;
     }
   }
 }

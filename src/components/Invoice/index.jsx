@@ -34,10 +34,11 @@ class Invoice extends Component {
     this.props.fetchInvoiceDataById(this.invoiceId);
   }
 
-  renderDetailCard(details, position) {
+  renderDetailCard(title, details, position) {
     return (
       <DetailCard
         position={position}
+        title={title}
         header={details.name}
         body={[details.street, details.city, details.postalcode]}
       />
@@ -68,6 +69,7 @@ class Invoice extends Component {
                       key="p_details_sender"
                     >
                       {this.renderDetailCard(
+                        "Sender",
                         this.props.invoices[this.invoiceId].sender,
                         "left"
                       )}
@@ -77,6 +79,7 @@ class Invoice extends Component {
                       key="p_details_receiver"
                     >
                       {this.renderDetailCard(
+                        "Receiver",
                         this.props.invoices[this.invoiceId].receiver,
                         "right"
                       )}

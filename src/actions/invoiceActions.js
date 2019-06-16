@@ -1,7 +1,5 @@
 import { FETCH_INVOICE_BY_ID } from "./types";
 
-import invoiceData from "../static_data/invoice-data";
-
 // fetch invoice by its ID
 // request: server invoice
 // parameters:
