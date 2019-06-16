@@ -16,6 +16,9 @@ export const fetchInvoiceDataById = invoiceId => (dispatch, getState) => {
   let cachedInvoices = getState().invoiceReducer.invoices;
   // add the invoice to the invoices list. We don't need to do anything if it already exists
   if (cachedInvoices[invoiceId] === undefined) {
+    let baseUrl = window.env_config.invoiceUrl;
+    // fetch data from the api and put them into the list
+
     for (let i = 0; i < invoiceData.length; i++) {
       if (invoiceData[i].invoiceId == invoiceId) {
         dispatch({

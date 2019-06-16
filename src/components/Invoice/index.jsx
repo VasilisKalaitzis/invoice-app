@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchInvoiceDataById } from "../../actions/invoiceActions";
 
-//libraries
+// libraries
 import { getUrlParameter } from "../../helperFunctions/helpers.js";
 
 // components

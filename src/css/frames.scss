@@ -1,7 +1,3 @@
-///////////////////////
-// window manipulation
-///////////////////////
-
 .fill-height {
   height: 100%;
 }
@@ -21,11 +17,10 @@
   width: -moz-available;
   // for chrome
   width: -webkit-fill-available;
-  // height: -webkit-fill-available;
 
   &-content {
     height: 80vh;
-    overflow-y: auto;
+    padding: 10px;
   }
   &:before {
     content: "";

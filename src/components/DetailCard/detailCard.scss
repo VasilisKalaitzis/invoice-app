@@ -14,10 +14,15 @@ $border-color: #ebebeb;
     min-height: 66px;
     width: 100%;
     white-space: pre-wrap;
+
+    & > p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   .detail-card-body {
-    opacity: 0.7;
+    opacity: 0.5;
     width: 100%;
     white-space: pre-wrap;
   }
@@ -25,28 +30,28 @@ $border-color: #ebebeb;
   &-left {
     // box-shadow: -3px 3px 4px 1px $border-color;
     // -webkit-box-shadow: -3px 3px 4px 1px $border-color;
-    transform: rotate3d(0, 2, 0, 15deg);
+    transform: rotate3d(0, 2, 0, 10deg);
     border-radius: 5px;
     text-align: left;
   }
   &-right {
     // box-shadow: 3px 3px 4px 1px $border-color;
     // -webkit-box-shadow: 3px 3px 4px 1px $border-color;
-    transform: rotate3d(0, 2, 0, -15deg);
+    transform: rotate3d(0, 2, 0, -10deg);
     border-radius: 5px;
     text-align: right;
   }
   &-top {
     // box-shadow: -2px -3px 4px 1px $border-color;
     // -webkit-box-shadow: -2px -3px 0px 1px $border-color;
-    transform: rotate3d(2, 0, 0, -15deg);
+    transform: rotate3d(2, 0, 0, -10deg);
     border-radius: 5px;
     text-align: center;
   }
   &-bottom {
     // box-shadow: -2px 3px 4px 1px $border-color;
     // -webkit-box-shadow: -2px 3px 4px 1px $border-color;
-    transform: rotate3d(2, 0, 0, 15deg);
+    transform: rotate3d(2, 0, 0, 10deg);
     border-radius: 5px;
     text-align: center;
   }
