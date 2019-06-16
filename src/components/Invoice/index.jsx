@@ -1,9 +1,19 @@
 import React, { Component } from "react";
+
+// state managment
 import { connect } from "react-redux";
 import { fetchInvoiceDataById } from "../../actions/invoiceActions";
+
+//libraries
 import { getUrlParameter } from "../../helperFunctions/helpers.js";
-import "./invoice.css";
+
+// components
 import TableTemplate from "../TableTemplate";
+import DetailCard from "../DetailCard";
+import AppHeader from "../AppHeader";
+
+// css
+import "./invoice.css";
 
 class Invoice extends Component {
   constructor(props) {
@@ -23,44 +33,73 @@ class Invoice extends Component {
     this.props.fetchInvoiceDataById(this.invoiceId);
   }
 
-  renderDetailForm(personalDetails, key) {
-    // this is subject of becoming a component on its own
-    // at the moment, it doesn't have enough re-usability value
-    return (
-      <div key={"p_details_" + key}>
-        <b>{personalDetails.name}</b>
-        <br />
-        {personalDetails.street}
-        <br />
-        {personalDetails.city}
-        <br />
-        {personalDetails.postalcode}
-      </div>
-    );
-  }
-
   render() {
     console.log(JSON.stringify(this.props));
     return (
-      <div>
-        {this.props.invoices.hasOwnProperty(this.invoiceId)
-          ? [
-              this.renderDetailForm(
-                this.props.invoices[this.invoiceId].sender,
-                "sender"
-              ),
-              this.renderDetailForm(
-                this.props.invoices[this.invoiceId].receiver,
-                "receiver"
-              ),
-              <TableTemplate
-                key="table-template-lines"
-                columns={["description", "qty", "vat", "price"]}
-                colHeaders={["Desc", "qty", "VAT", "Price"]}
-                dataSource={this.props.invoices[this.invoiceId].lines}
-              />
-            ]
-          : null}
+      <div className="invoice-container flexcontainer">
+        {/*  header here */}
+        <AppHeader title={"INVOICE #" + this.invoiceId} />
+
+        {/* body here */}
+        <div className="sub-app color-pallete2">
+          {this.props.invoices.hasOwnProperty(this.invoiceId)
+            ? [
+                <div class="flexcontainer-block xs-12">
+                  <div key="invoice_date">
+                    {" "}
+                    invoiceDate:{" "}
+                    {this.props.invoices[this.invoiceId].invoiceDate}
+                  </div>
+                  <div key="pay_by">
+                    {" "}
+                    payBy: {this.props.invoices[this.invoiceId].payBy}
+                  </div>
+                  <div key="account">
+                    {" "}
+                    account: {this.props.invoices[this.invoiceId].account}
+                  </div>
+                </div>,
+                // sender - receiver info
+                <div className="flexcontainer-block xs-6">
+                  <DetailCard
+                    position="left"
+                    key="p_details_sender"
+                    details={this.props.invoices[this.invoiceId].sender}
+                  />
+                </div>,
+                <div className="flexcontainer-block xs-6">
+                  <DetailCard
+                    position="right"
+                    key="p_details_receiver"
+                    details={this.props.invoices[this.invoiceId].receiver}
+                  />
+                </div>,
+                // items
+                <div className="flexcontainer-block xs-12">
+                  <TableTemplate
+                    key="table_template_invoice"
+                    id="table_template_invoice"
+                    columns={[
+                      { label: "description" },
+                      { label: "qty" },
+                      { label: "vat" },
+                      { label: "price", prefix: "$" }
+                    ]}
+                    colHeaders={["Product", "Unit", "VAT", "Price"]}
+                    dataSource={this.props.invoices[this.invoiceId].lines}
+                    aggregates={[
+                      {
+                        type: "text",
+                        label: "Total",
+                        value:
+                          "$" + this.props.invoices[this.invoiceId].totalPrice
+                      }
+                    ]}
+                  />
+                </div>
+              ]
+            : null}
+        </div>
       </div>
     );
   }

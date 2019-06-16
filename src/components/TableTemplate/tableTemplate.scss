@@ -1,0 +1,32 @@
+.table-template-container {
+  width: 100%;
+  caption-side: bottom;
+
+  thead {
+    border-bottom: 1px solid #ebebeb;
+    th {
+      opacity: 0.3;
+      font-weight: 100;
+    }
+  }
+
+  td,
+  th,
+  .caption-td {
+    padding: 5px 10px;
+    text-align: left;
+  }
+
+  // align right for every column except the first
+  td + td,
+  th + th {
+    text-align: right;
+  }
+
+  .table-aggregate-label {
+    float: left;
+  }
+  .table-aggregate-value {
+    float: right;
+  }
+}

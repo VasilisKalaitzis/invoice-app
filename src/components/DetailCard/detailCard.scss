@@ -1,0 +1,22 @@
+.detail-card-container {
+  &-left {
+    box-shadow: -3px 3px 4px 1px #40514e;
+    -webkit-box-shadow: -5px 4px 0px 1px #40514e;
+    transform: rotate3d(0, 2, 0, 35deg);
+  }
+  &-right {
+    box-shadow: 3px 3px 4px 1px #40514e;
+    -webkit-box-shadow: 5px 4px 0px 1px #40514e;
+    transform: rotate3d(0, 2, 0, -35deg);
+  }
+  &-top {
+    box-shadow: -2px -3px 4px 1px #40514e;
+    -webkit-box-shadow: -2px -3px 0px 1px #40514e;
+    transform: rotate3d(2, 0, 0, -35deg);
+  }
+  &-bottom {
+    box-shadow: -2px 3px 4px 1px #40514e;
+    -webkit-box-shadow: -2px 3px 4px 1px #40514e;
+    transform: rotate3d(2, 0, 0, 35deg);
+  }
+}
