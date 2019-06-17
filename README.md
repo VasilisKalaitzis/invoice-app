@@ -6,20 +6,20 @@ It utilizes: React Router, Redux
 ## Structure
 
 index.js -- Initialize App
-|
-|
 --->Routes/Routes.jsx -- Create the navigation control
-|
-|
 --->App.jsx -- Assigning the navigation component to container
 
 ## Components
 
-Invoice -- Displays the invoice template -- Utilize query parameter "invoiceId"
-AppHeader -- Displays the header
-BeautyFields -- Giving emphasis to important fields
-DetailCard -- Displays a box with information (title, header, body)
-TableTemplate -- Displays a table
+### Invoice -- Displays the invoice template -- Utilize query parameter "invoiceId"
+
+### AppHeader -- Displays the header
+
+### BeautyFields -- Giving emphasis to important fields
+
+### DetailCard -- Displays a box with information (title, header, body)
+
+### TableTemplate -- Displays a table
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
