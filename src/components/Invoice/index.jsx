@@ -93,14 +93,14 @@ class Invoice extends Component {
                       <BeautyFields
                         type="date"
                         value={
-                          "From " +
+                          "Invoice " +
                           this.props.invoices[this.invoiceId].invoiceDate
                         }
                       />
                       <BeautyFields
                         type="date"
                         value={
-                          "Until " + this.props.invoices[this.invoiceId].payBy
+                          "Pay By " + this.props.invoices[this.invoiceId].payBy
                         }
                       />
                       <BeautyFields
