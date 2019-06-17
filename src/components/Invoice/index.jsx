@@ -50,7 +50,6 @@ class Invoice extends Component {
       <div className="invoice-container flexcontainer">
         {/*  header here */}
         {/* Tech Dept: This should be moved to the route */}
-
         <div className="xs-12">
           <AppHeader title={"INVOICE #" + this.invoiceId} />
         </div>
@@ -88,7 +87,7 @@ class Invoice extends Component {
                     // invoice details info
                     ////////////////////////
                     <div
-                      className="flexcontainer-block xs-12 sm-4 md-3 vertical-top"
+                      className="flexcontainer-block xs-12 md-6 vertical-top"
                       key="invoice_invoiceDate"
                     >
                       <BeautyFields
@@ -98,22 +97,12 @@ class Invoice extends Component {
                           this.props.invoices[this.invoiceId].invoiceDate
                         }
                       />
-                    </div>,
-                    <div
-                      className="flexcontainer-block xs-12 sm-4 md-3 vertical-top"
-                      key="invoice_payBy"
-                    >
                       <BeautyFields
                         type="date"
                         value={
                           "Until " + this.props.invoices[this.invoiceId].payBy
                         }
                       />
-                    </div>,
-                    <div
-                      className="flexcontainer-block xs-12 sm-4 md-3 vertical-top"
-                      key="invoice_account"
-                    >
                       <BeautyFields
                         type="text"
                         value={

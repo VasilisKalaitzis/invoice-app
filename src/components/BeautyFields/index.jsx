@@ -7,6 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./beautyFields.css";
 
 class BeautyFields extends Component {
+  // render the FA icon
+  // Params
+  // type = string
   renderIcon(type) {
     switch (type) {
       case "text":

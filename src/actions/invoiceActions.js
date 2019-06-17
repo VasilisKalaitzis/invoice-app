@@ -8,7 +8,7 @@ export const fetchInvoiceDataById = invoiceId => (dispatch, getState) => {
   // PR Notes: Architecture Decision
   // 1) using cache currently has negative value due to the lack of navigation control
   // 2) when we will add navigation and when we will have to send multiple requests
-  // it will get a lot of value
+  // it will get value
   // (e.g fetch invoice from invoice_list, send real time notification to change
   // the invoice status from pending to viewed, easy offline mode integration e.t.c)
   let cachedInvoices = getState().invoiceReducer.invoices;

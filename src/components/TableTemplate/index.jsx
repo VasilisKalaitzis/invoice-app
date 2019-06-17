@@ -25,6 +25,9 @@ class tableTemplate extends Component {
   }
 
   // calculate aggregates from columns or add text
+  // Params
+  //      aggregate = Object = {type, label}
+  //      idx       = integer
   renderAggregate(aggregate, idx) {
     switch (aggregate.type) {
       case "text": {

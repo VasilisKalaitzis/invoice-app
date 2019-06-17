@@ -29,11 +29,15 @@ class DetailCard extends Component {
 }
 
 DetailCard.defaultProps = {
+  title: "",
+  position: "",
   header: null,
   body: []
 };
 
 DetailCard.propTypes = {
+  title: PropTypes.string,
+  position: PropTypes.string,
   header: PropTypes.string,
   body: PropTypes.array
 };
