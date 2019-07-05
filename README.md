@@ -1,6 +1,8 @@
+Demo URL: http://invoice-app.bill.develop.c-137.live/invoice/2
 ## About
 
 This is a simple React application that displays an invoice.
+It features a simple responsive UI.
 It utilizes: React Router, Redux
 
 ## Structure
